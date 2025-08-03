@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Высотные работы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Стили для уведомления об успехе */
+        .success-toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            z-index: 10000;
+            max-width: 400px;
+            transform: translateX(150%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .success-toast.show {
+            transform: translateX(0);
+        }
+        h1.display-4 {
+            font-family: 'Spectral', serif;
+        }
+        .success-toast i {
+            font-size: 28px;
+            margin-right: 15px;
+            animation: bounce 0.8s;
+        }
+
+        .success-toast .content h4 {
+            margin: 0 0 5px 0;
+            font-weight: 600;
+        }
+
+        .success-toast .content p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 15px;
+        }
+
+        .success-toast .close-btn {
+            margin-left: 15px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .success-toast .close-btn:hover {
+            opacity: 1;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-7px);}
+        }
+
+        /* Анимация для формы */
+        .form-submitted {
+            animation: pulseSuccess 2s ease;
+        }
+
+        @keyframes pulseSuccess {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+    </style>
+
+
+    <header class="hero-section position-relative overflow-hidden">
+    <div class="video-background">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="/static/img/promo.mp4" type="video/mp4">
+            <source src="/static/img/promo.mov" type="video/quicktime">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <div class="container h-100 position-relative text-white text-center d-flex align-items-center">
+        <div class="row w-100 justify-content-center">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold mb-4">Промышленный альпинизм ООО "Эверест"</h1>
+                <p class="lead mb-5">Мы обеспечим надежность, безопасность и профессионализм на любой высоте.</p>
+                <a href="#main-content" class="scroll-down-btn d-flex justify-content-center align-items-center">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main id="main-content">  </main>
+</head>
+
+<body>
+    <header>
+        <h1>Промышленный альпинизм ООО "Эверест"</h1>
+        <p>Мы обеспечим надежность, безопасность и профессионализм на любой высоте.</p>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Высотники</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" data-target="home">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-target="services">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-target="gallery">Галерея</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-target="about">О компании</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-target="contact">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="active fade-in-up">
+        <div class="container text-center">
+            <h2>Добро пожаловать!</h2>
+            <p>Мы предлагаем широкий спектр услуг по высотным работам. Наши специалисты обладают многолетним опытом работы в сложных и опасных условиях. Мы гарантируем высокое качество, безопасность и надежность.</p>
+            <video width="100%" height="auto" autoplay loop muted>
+                <source src="/static/video/promo.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+    </section>
+
+    <section id="services" class="fade-in-up">
+    <div class="container text-center">
+        <h2>Наши услуги</h2>
+        <div class="row">
+            {% for service in services %}
+            <div class="col-md-4 mb-4">
+  <div class="card service-card h-100">
+    <img src="{{ service.image_url }}" class="img-fluid card-img-top" alt="{{ service.name }}">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">{{ service.name }}</h5>
+      <p class="card-text">{{ service.description }}</p>
+
+      <!-- Кнопка для раскрытия subdescription -->
+      <button class="btn btn-outline-primary mt-auto" data-bs-toggle="collapse" href="#subdesc{{ service.id }}" role="button" aria-expanded="false" aria-controls="subdesc{{ service.id }}">
+        Подробнее
+      </button>
+
+      <!-- Блок с дополнительным описанием -->
+      <div class="collapse mt-3" id="subdesc{{ service.id }}">
+        <div class="card card-body bg-light text-muted small">
+          {{ service.subdescription }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+    <section id="about" class="fade-in-up">
+        <div class="container text-center">
+            <h2>О компании</h2>
+            <p>Наша компания предоставляет услуги высотных работ более 10 лет. Мы работаем с многими крупными предприятиями и всегда соблюдаем стандарты безопасности. Наша цель - обеспечить качественное выполнение любых высотных работ.</p>
+            <div class="row">
+                <div class="col-4">
+                    <div class="counter" id="counter1">10+</div>
+                    <p>лет на рынке</p>
+                </div>
+                <div class="col-4">
+                    <div class="counter" id="counter2">500+</div>
+                    <p>проектов успешно завершено</p>
+                </div>
+                <div class="col-4">
+                    <div class="counter" id="counter3">100+</div>
+                    <p>клиентов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="gallery" class="fade-in-up">
+    <div class="container text-center">
+        <h2>Галерея</h2>
+        <p class="mb-4">Выберите категорию:</p>
+
+        <!-- Фильтры -->
+        <div class="btn-group mb-4" role="group">
+            <button class="btn btn-outline-primary active" data-filter="all">Все</button>
+            <button class="btn btn-outline-primary" data-filter="mejpanel">Герметизация швов</button>
+            <button class="btn btn-outline-primary" data-filter="monsvetkor">Световой короб</button>
+            <button class="btn btn-outline-primary" data-filter="pokraskafas">Покраска фасада</button>
+            <button class="btn btn-outline-primary" data-filter="ventFas">Вентилируемый фасад</button>
+            <button class="btn btn-outline-primary" data-filter="remfaszdaniya">Ремонт фасада</button>
+            <button class="btn btn-outline-primary" data-filter="chistkasnega">Чистка снега</button>
+            <button class="btn btn-outline-primary" data-filter="demont">Демонтаж металла</button>
+            <button class="btn btn-outline-primary" data-filter="remfas">Ремонт фасада (2)</button>
+        </div>
+
+        <!-- Картинки -->
+        <div class="row g-4 justify-content-center" id="gallery-items">
+            <!-- Вентилируемый фасад -->
+            <div class="col-md-4 gallery-item ventFas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/ventFas1.jpg" class="card-img-top img-gallery" alt="Вентилируемый фасад">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item ventFas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/ventFas2.jpg" class="card-img-top img-gallery" alt="Вентилируемый фасад">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item ventFas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/ventFas3.jpg" class="card-img-top img-gallery" alt="Вентилируемый фасад">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item ventFas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/ventFas4.jpg" class="card-img-top img-gallery" alt="Вентилируемый фасад">
+                </div>
+            </div>
+
+            <!-- Чистка снега с крыш -->
+            <div class="col-md-4 gallery-item chistkasnega">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/chistkasnega1.jpg" class="card-img-top img-gallery" alt="Чистка снега">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item chistkasnega">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/chistkasnega2.jpg" class="card-img-top img-gallery" alt="Чистка снега">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item chistkasnega">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/chistkasnega3.jpg" class="card-img-top img-gallery" alt="Чистка снега">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item chistkasnega">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/chistkasnega4.jpg" class="card-img-top img-gallery" alt="Чистка снега">
+                </div>
+            </div>
+
+            <!-- Демонтаж конструкций из металла -->
+            <div class="col-md-4 gallery-item demont">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/demont1.jpg" class="card-img-top img-gallery" alt="Демонтаж">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item demont">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/demont2.jpg" class="card-img-top img-gallery" alt="Демонтаж">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item demont">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/demont3.jpg" class="card-img-top img-gallery" alt="Демонтаж">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item demont">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/demont4.jpg" class="card-img-top img-gallery" alt="Демонтаж">
+                </div>
+            </div>
+
+            <!-- Герметизация межпанельных швов -->
+            <div class="col-md-4 gallery-item mejpanel">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/mejpanel1.jpg" class="card-img-top img-gallery" alt="Швы">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item mejpanel">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/mejpanel2.jpg" class="card-img-top img-gallery" alt="Швы">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item mejpanel">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/mejpanel3.jpg" class="card-img-top img-gallery" alt="Швы">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item mejpanel">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/mejpanel4.jpg" class="card-img-top img-gallery" alt="Швы">
+                </div>
+            </div>
+
+            <!-- Монтаж светового короба -->
+            <div class="col-md-4 gallery-item monsvetkor">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/monsvetkor1.jpg" class="card-img-top img-gallery" alt="Короб">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item monsvetkor">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/monsvetkor2.jpg" class="card-img-top img-gallery" alt="Короб">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item monsvetkor">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/monsvetkor3.jpg" class="card-img-top img-gallery" alt="Короб">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item monsvetkor">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/monsvetkor4.jpg" class="card-img-top img-gallery" alt="Короб">
+                </div>
+            </div>
+
+            <!-- Покраска фасада -->
+            <div class="col-md-4 gallery-item pokraskafas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/pokraskafas1.jpg" class="card-img-top img-gallery" alt="Покраска">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item pokraskafas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/pokraskafas2.jpg" class="card-img-top img-gallery" alt="Покраска">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item pokraskafas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/pokraskafas3.jpg" class="card-img-top img-gallery" alt="Покраска">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item pokraskafas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/pokraskafas4.jpg" class="card-img-top img-gallery" alt="Покраска">
+                </div>
+            </div>
+
+            <!-- Ремонт фасада здания -->
+            <div class="col-md-4 gallery-item remfaszdaniya">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/remfaszdaniya1.jpg" class="card-img-top img-gallery" alt="Фасад">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item remfaszdaniya">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/remfaszdaniya2.jpg" class="card-img-top img-gallery" alt="Фасад">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item remfaszdaniya">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/remfaszdaniya3.jpg" class="card-img-top img-gallery" alt="Фасад">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item remfaszdaniya">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/remfaszdaniya4.jpg" class="card-img-top img-gallery" alt="Фасад">
+                </div>
+            </div>
+
+            <!-- Ремонт фасада здания (2) -->
+            <div class="col-md-4 gallery-item remfas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/remfas1.jpg" class="card-img-top img-gallery" alt="Фасад 2">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item remfas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/remfas2.jpg" class="card-img-top img-gallery" alt="Фасад 2">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item remfas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/remfas3.jpg" class="card-img-top img-gallery" alt="Фасад 2">
+                </div>
+            </div>
+            <div class="col-md-4 gallery-item remfas">
+                <div class="card h-100 shadow-sm">
+                    <img src="/static/img/galery/remfas4.jpg" class="card-img-top img-gallery" alt="Фасад 2">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+     <section id="contact" class="fade-in-up">
+        <div class="container" style="max-width: 600px; margin: auto;">
+            <div class="card p-4" id="contactForm">
+                <h2 class="text-center">Контакты</h2>
+                <p class="text-center">Вы можете связаться с нами или оставить заявку на нашем сайте.</p>
+
+                {% if error %}
+                    <div class="alert alert-danger animate__animated animate__fadeIn">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        {{ error }}
+                    </div>
+                {% endif %}
+
+                <form action="/" method="POST">
+                    <div class="mb-3">
+                        <label for="fio" class="form-label">ФИО</label>
+                        <input type="text" class="form-control" id="fio" name="fio" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="number" class="form-label">Номер телефона</label>
+                        <input type="tel" class="form-control" id="number" name="number" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Оставить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    {% if success %}
+    <div class="success-toast" id="successToast">
+        <i class="fas fa-check-circle"></i>
+        <div class="content">
+            <h4>Заявка принята!</h4>
+            <p>Мы свяжемся с вами в ближайшее время.</p>
+        </div>
+        <span class="close-btn"><i class="fas fa-times"></i></span>
+    </div>
+    {% endif %}
+
+    <footer>
+        <p>&copy; 2025 Высотные работы. Все права защищены.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+    <script>
+    document.querySelectorAll('.btn[data-filter]').forEach(button => {
+        button.addEventListener('click', function () {
+            const filter = this.getAttribute('data-filter');
+
+            // Сброс активного класса
+            document.querySelectorAll('.btn[data-filter]').forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Фильтрация
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.style.display = (filter === 'all' || item.classList.contains(filter)) ? 'block' : 'none';
+            });
+        });
+    });
+</script>
+    <script>
+
+    document.querySelector('.scroll-down-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#main-content').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.pageYOffset;
+        document.querySelector('.hero-section').style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+    });
+</script>
+    <script>
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+                document.getElementById(link.getAttribute('data-target')).classList.add('active');
+            });
+        });
+
+
+        let counter1 = document.getElementById('counter1');
+        let counter2 = document.getElementById('counter2');
+        let counter3 = document.getElementById('counter3');
+
+        let count1 = 0;
+        let count2 = 0;
+        let count3 = 0;
+
+        setInterval(() => {
+            if (count1 < 20) counter1.innerText = ++count1;
+            if (count2 < 500) counter2.innerText = ++count2;
+            if (count3 < 100) counter3.innerText = ++count3;
+        }, 100);
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const successToast = document.getElementById('successToast');
+
+            if (successToast) {
+
+                setTimeout(() => {
+                    successToast.classList.add('show');
+
+
+                    const contactForm = document.getElementById('contactForm');
+                    contactForm.classList.add('form-submitted');
+
+
+                    document.querySelector('form').reset();
+
+
+                    setTimeout(() => {
+                        document.getElementById('contact').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 500);
+                }, 300);
+
+
+                successToast.querySelector('.close-btn').addEventListener('click', function() {
+                    closeToast();
+                });
+
+
+                const autoClose = setTimeout(() => {
+                    closeToast();
+                }, 5000);
+
+                function closeToast() {
+                    successToast.classList.remove('show');
+                    setTimeout(() => {
+                        successToast.remove();
+                    }, 500);
+                    clearTimeout(autoClose);
+                }
+            }
+        });
+    </script>
+    <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.background-video');
+
+
+    const playPromise = video.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(error => {
+
+            const videoContainer = document.querySelector('.video-container');
+            const playButton = document.createElement('button');
+            playButton.innerHTML = '<i class="fas fa-play"></i> Включить видеофон';
+            playButton.className = 'btn btn-outline-light btn-lg mt-3';
+            playButton.onclick = function() {
+                video.play();
+                this.remove();
+            };
+            videoContainer.appendChild(playButton);
+        });
+    }
+});
+</script>
+</body>
+</html>
