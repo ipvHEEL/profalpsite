@@ -408,41 +408,14 @@
         <div class="container" style="max-width: 600px; margin: auto;">
             <div class="card p-4" id="contactForm">
                 <h2 class="text-center">Контакты</h2>
-                <p class="text-center">Вы можете связаться с нами или оставить заявку на нашем сайте.</p>
-
-                {% if error %}
-                    <div class="alert alert-danger animate__animated animate__fadeIn">
-                        <i class="fas fa-exclamation-circle me-2"></i>
-                        {{ error }}
-                    </div>
-                {% endif %}
-
-                <form action="/" method="POST">
-                    <div class="mb-3">
-                        <label for="fio" class="form-label">ФИО</label>
-                        <input type="text" class="form-control" id="fio" name="fio" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="number" class="form-label">Номер телефона</label>
-                        <input type="tel" class="form-control" id="number" name="number" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Оставить заявку</button>
-                </form>
+                <p class="text-center">Позвоните нам, чтобы обсудить задачу и получить консультацию.</p>
+                <a href="tel:+79777748419" class="btn btn-primary w-100 fs-4">
+                    <i class="fas fa-phone-alt me-2"></i>+7 977 774 84 19
+                </a>
             </div>
         </div>
     </section>
 
-
-    {% if success %}
-    <div class="success-toast" id="successToast">
-        <i class="fas fa-check-circle"></i>
-        <div class="content">
-            <h4>Заявка принята!</h4>
-            <p>Мы свяжемся с вами в ближайшее время.</p>
-        </div>
-        <span class="close-btn"><i class="fas fa-times"></i></span>
-    </div>
-    {% endif %}
 
     <footer>
         <p>&copy; 2025 Высотные работы. Все права защищены.</p>
