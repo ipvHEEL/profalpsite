@@ -1,0 +1,40 @@
+[2026-07-19 20:50:20 +0000] [22761] [INFO] Starting gunicorn 26.0.0
+[2026-07-19 20:50:20 +0000] [22761] [ERROR] Invalid address: ('120.0.0.1', 8000)
+[2026-07-19 20:50:20 +0000] [22761] [ERROR] connection to ('120.0.0.1', 8000) failed: [Errno 99] Cannot assign requested address
+[2026-07-19 20:50:21 +0000] [22761] [ERROR] Invalid address: ('120.0.0.1', 8000)
+[2026-07-19 20:50:21 +0000] [22761] [ERROR] connection to ('120.0.0.1', 8000) failed: [Errno 99] Cannot assign requested address
+[2026-07-19 20:50:22 +0000] [22761] [ERROR] Invalid address: ('120.0.0.1', 8000)
+[2026-07-19 20:50:22 +0000] [22761] [ERROR] connection to ('120.0.0.1', 8000) failed: [Errno 99] Cannot assign requested address
+[2026-07-19 20:50:23 +0000] [22761] [ERROR] Invalid address: ('120.0.0.1', 8000)
+[2026-07-19 20:50:23 +0000] [22761] [ERROR] connection to ('120.0.0.1', 8000) failed: [Errno 99] Cannot assign requested address
+[2026-07-19 20:50:24 +0000] [22761] [ERROR] Invalid address: ('120.0.0.1', 8000)
+[2026-07-19 20:50:24 +0000] [22761] [ERROR] connection to ('120.0.0.1', 8000) failed: [Errno 99] Cannot assign requested address
+[2026-07-19 20:50:25 +0000] [22761] [ERROR] Can't connect to ('120.0.0.1', 8000)
+[2026-07-19 20:50:54 +0000] [22762] [INFO] Starting gunicorn 26.0.0
+[2026-07-19 20:50:54 +0000] [22762] [INFO] Listening at: http://127.0.0.1:8000 (22762)
+[2026-07-19 20:50:54 +0000] [22762] [INFO] Using worker: sync
+[2026-07-19 20:50:54 +0000] [22763] [INFO] Booting worker with pid: 22763
+[2026-07-19 20:50:54 +0000] [22764] [INFO] Booting worker with pid: 22764
+[2026-07-19 20:50:54 +0000] [22765] [INFO] Booting worker with pid: 22765
+[2026-07-19 20:50:55 +0000] [22762] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-07-19 20:52:04 +0000] [22762] [INFO] Handling signal: int
+[2026-07-19 20:52:04 +0000] [22764] [INFO] Worker exiting (pid: 22764)
+[2026-07-19 20:52:04 +0000] [22763] [INFO] Worker exiting (pid: 22763)
+[2026-07-19 20:52:04 +0000] [22765] [INFO] Worker exiting (pid: 22765)
+[2026-07-19 20:52:04 +0000] [22762] [WARNING] Worker (pid:22763) was sent SIGINT!
+[2026-07-19 20:52:04 +0000] [22762] [WARNING] Worker (pid:22764) was sent SIGINT!
+[2026-07-19 20:52:04 +0000] [22762] [WARNING] Worker (pid:22765) was sent SIGINT!
+[2026-07-19 20:52:04 +0000] [22762] [INFO] Shutting down: Master
+[2026-07-19 20:52:10 +0000] [22773] [INFO] Starting gunicorn 26.0.0
+[2026-07-19 20:52:10 +0000] [22773] [INFO] Listening at: http://127.0.0.1:8000 (22773)
+[2026-07-19 20:52:10 +0000] [22773] [INFO] Using worker: sync
+[2026-07-19 20:52:10 +0000] [22774] [INFO] Booting worker with pid: 22774
+[2026-07-19 20:52:10 +0000] [22775] [INFO] Booting worker with pid: 22775
+[2026-07-19 20:52:10 +0000] [22776] [INFO] Booting worker with pid: 22776
+[2026-07-19 20:52:10 +0000] [22773] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-07-19 20:52:33 +0000] [22773] [INFO] Handling signal: int
+[2026-07-19 20:52:33 +0000] [22776] [INFO] Worker exiting (pid: 22776)
+[2026-07-19 20:52:33 +0000] [22773] [WARNING] Worker (pid:22776) was sent SIGINT!
+[2026-07-19 20:52:33 +0000] [22773] [WARNING] Worker (pid:22774) was sent SIGINT!
+[2026-07-19 20:52:33 +0000] [22773] [WARNING] Worker (pid:22775) was sent SIGINT!
+[2026-07-19 20:52:33 +0000] [22773] [INFO] Shutting down: Master

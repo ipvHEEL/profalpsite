@@ -22,7 +22,7 @@ logging.basicConfig(
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://andrew:@localhost/alp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://myuser:mypassword@localhost/mydb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'key'
 
@@ -93,7 +93,7 @@ class Application(db.Model):
         return f'<Application {self.FIO} - {self.Number}>'
 
 
-admin = Admin(app, name='Админ панель', template_mode='bootstrap3')
+admin = Admin(app, name='Админ панель')
 admin.add_view(ModelView(Application, db.session))
 admin.add_view(ModelView(Service, db.session))
 
