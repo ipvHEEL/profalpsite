@@ -98,31 +98,9 @@ admin.add_view(ModelView(Application, db.session))
 admin.add_view(ModelView(Service, db.session))
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
     services = Service.query.all()
-
-    if request.method == 'POST':
-        try:
-            fio = request.form['fio']
-            number = request.form['number']
-            logging.debug(f"Received form data: FIO={fio}, Number={number}")
-
-            new_application = Application(FIO=fio, Number=number)
-            db.session.add(new_application)
-            db.session.commit()
-
-            logging.info("Application successfully submitted!")
-            # Используем render_template вместо redirect для передачи success
-            return render_template('index.html',
-                                   services=services,
-                                   success="Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.")
-        except Exception as e:
-            logging.error(f"Error processing form submission: {e}", exc_info=True)
-            return render_template('index.html',
-                                   error="Произошла ошибка. Попробуйте снова.",
-                                   services=services)
-
     return render_template('index.html', services=services)
 
 
